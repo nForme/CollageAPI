@@ -30,5 +30,11 @@ namespace API.Controllers
                 return NotFound("Client not found");
             return Ok(result);
         }
+        [HttpPost]
+        public async Task<ActionResult<Client>> PostClient(Client client)
+        {
+            var newClient = await _client.CreateClient(client);
+            return Ok(newClient);
+        }
     }
 }

@@ -11,6 +11,13 @@ namespace API.Service.ClientService.ClientService
             _context = context;
         }
 
+        public async Task<Client> CreateClient(Client client)
+        {
+            _context.Client.Add(client);
+            await _context.SaveChangesAsync();
+            return client;
+        }
+
         public async Task<Client> GetClient(int id)
         {
             var Client = await _context.Client.FindAsync(id);

@@ -14,7 +14,7 @@ namespace API.Service.ServiceCategoryService
         public async Task<List<ServiceCategory>> GetServiceCategories()
         {
             var ServiceCategories = await _context.ServiceCategory
-                .Include(c=>c.Service)
+                .Include(c => c.Service)
                 .Include(c=>c.Category)
                 .ToListAsync();
             return ServiceCategories;
